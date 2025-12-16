@@ -1,0 +1,72 @@
+[data-theme='terminal'] {
+	/* ------------------ Typography ------------------ */
+	--text-scaling: 1;
+	--base-font-family: 'IBM Plex Mono', monospace;
+	--base-font-size: 0.95rem;
+	--base-line-height: 1.55;
+	--base-font-weight: 400;
+	--base-letter-spacing: 0em;
+
+	--heading-font-family: inherit;
+	--heading-font-weight: 600;
+	--heading-letter-spacing: 0.02em;
+
+	/* ------------------ Spacing & Shape ------------------ */
+	--spacing: 0.25rem;
+	--radius-base: 2px;
+	--radius-container: 2px;
+
+	--default-border-width: 1px;
+	--default-divide-width: 1px;
+	--default-ring-width: 1px;
+
+	/* ------------------ Base Colors ------------------ */
+	--body-background-color: var(--color-surface-950);
+	--body-background-color-dark: var(--color-surface-950);
+
+	--base-font-color: var(--color-surface-50);
+	--base-font-color-dark: var(--color-surface-50);
+
+	/* ------------------ Links ------------------ */
+	--anchor-font-color: var(--color-primary-500);
+	--anchor-font-color-dark: var(--color-primary-500);
+	--anchor-text-decoration: none;
+	--anchor-text-decoration-hover: underline;
+
+	/* ------------------ Primary (Terminal Green) ------------------ */
+	--color-primary-50:  oklch(95% 0.05 145);
+	--color-primary-100: oklch(90% 0.08 145);
+	--color-primary-200: oklch(85% 0.12 145);
+	--color-primary-300: oklch(78% 0.16 145);
+	--color-primary-400: oklch(72% 0.19 145);
+	--color-primary-500: oklch(65% 0.22 145); /* main accent */
+	--color-primary-600: oklch(58% 0.20 145);
+	--color-primary-700: oklch(50% 0.18 145);
+	--color-primary-800: oklch(42% 0.15 145);
+	--color-primary-900: oklch(34% 0.12 145);
+	--color-primary-950: oklch(26% 0.09 145);
+
+	--color-primary-contrast-dark: #000;
+	--color-primary-contrast-light: #000;
+
+	/* ------------------ Secondary / Tertiary ------------------ */
+	/* Muted grayscale only — no colorful UI noise */
+	--color-secondary-500: var(--color-surface-500);
+	--color-tertiary-500: var(--color-surface-400);
+
+	/* ------------------ Feedback Colors ------------------ */
+	--color-success-500: oklch(65% 0.22 145); /* same as primary */
+	--color-warning-500: oklch(75% 0.15 80);  /* amber */
+	--color-error-500:   oklch(60% 0.20 25);  /* red */
+
+	/* ------------------ Surfaces (True Terminal) ------------------ */
+	--color-surface-50:  oklch(96% 0 none);   /* text */
+	--color-surface-100: oklch(85% 0 none);
+	--color-surface-200: oklch(72% 0 none);
+	--color-surface-300: oklch(60% 0 none);
+	--color-surface-400: oklch(48% 0 none);
+	--color-surface-500: oklch(36% 0 none);
+	--color-surface-600: oklch(28% 0 none);
+	--color-surface-700: oklch(20% 0 none);
+	--color-surface-800: oklch(14% 0 none);
+}
