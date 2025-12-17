@@ -33,34 +33,33 @@
 	--anchor-text-decoration: none;
 	--anchor-text-decoration-hover: underline;
 
-	/* ------------------ Primary (Terminal Green) ------------------ */
-	--color-primary-50:  oklch(95% 0.05 145);
-	--color-primary-100: oklch(90% 0.08 145);
-	--color-primary-200: oklch(85% 0.12 145);
-	--color-primary-300: oklch(78% 0.16 145);
-	--color-primary-400: oklch(72% 0.19 145);
-	--color-primary-500: oklch(65% 0.22 145); /* main accent */
-	--color-primary-600: oklch(58% 0.20 145);
-	--color-primary-700: oklch(50% 0.18 145);
-	--color-primary-800: oklch(42% 0.15 145);
-	--color-primary-900: oklch(34% 0.12 145);
-	--color-primary-950: oklch(26% 0.09 145);
+	/* ------------------ Primary (Terminal Orange / Amber) ------------------ */
+	--color-primary-50:  oklch(96% 0.06 55);
+	--color-primary-100: oklch(92% 0.09 55);
+	--color-primary-200: oklch(87% 0.13 55);
+	--color-primary-300: oklch(80% 0.17 55);
+	--color-primary-400: oklch(73% 0.20 55);
+	--color-primary-500: oklch(66% 0.23 55); /* main accent */
+	--color-primary-600: oklch(58% 0.21 55);
+	--color-primary-700: oklch(50% 0.19 55);
+	--color-primary-800: oklch(42% 0.16 55);
+	--color-primary-900: oklch(34% 0.13 55);
+	--color-primary-950: oklch(26% 0.10 55);
 
 	--color-primary-contrast-dark: #000;
 	--color-primary-contrast-light: #000;
 
 	/* ------------------ Secondary / Tertiary ------------------ */
-	/* Muted grayscale only — no colorful UI noise */
 	--color-secondary-500: var(--color-surface-500);
 	--color-tertiary-500: var(--color-surface-400);
 
 	/* ------------------ Feedback Colors ------------------ */
-	--color-success-500: oklch(65% 0.22 145); /* same as primary */
-	--color-warning-500: oklch(75% 0.15 80);  /* amber */
-	--color-error-500:   oklch(60% 0.20 25);  /* red */
+	--color-success-500: oklch(66% 0.23 55); /* orange success */
+	--color-warning-500: oklch(75% 0.15 80); /* brighter amber */
+	--color-error-500:   oklch(60% 0.20 25); /* red */
 
 	/* ------------------ Surfaces (True Terminal) ------------------ */
-	--color-surface-50:  oklch(96% 0 none);   /* text */
+	--color-surface-50:  oklch(96% 0 none);
 	--color-surface-100: oklch(85% 0 none);
 	--color-surface-200: oklch(72% 0 none);
 	--color-surface-300: oklch(60% 0 none);
