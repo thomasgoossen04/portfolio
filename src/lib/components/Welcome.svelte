@@ -8,7 +8,7 @@
 	let index = 0;
 	let done = false;
 
-	const TYPE_SPEED = 40;
+	const TYPE_SPEED = 50;
 
 	function startTyping() {
 		const interval = setInterval(() => {
