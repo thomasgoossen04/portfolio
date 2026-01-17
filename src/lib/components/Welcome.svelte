@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { fade, fly } from 'svelte/transition';
 
-	const text = 'Welcome! This website is currently under construction...';
+	const text = 'Welcome! This website is currently WIP...';
 	let displayed = '';
 	let index = 0;
 	let done = false;
