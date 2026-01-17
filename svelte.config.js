@@ -10,7 +10,10 @@ const config = {
     kit: {
         adapter: adapter({
             out: 'build',
-            precompress: true
+            precompress: true,
+            env: {
+                port: process.env.PORT || 5634
+            }
         })
     }
 };
