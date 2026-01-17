@@ -17,16 +17,22 @@ export interface ProgLangEntry {
     experience: number // 0 to 1 (beginner to expert percentage)
 }
 
+export interface ProjectEntry {
+    name: string,
+    description: string,
+    stack: string,
+    url: string
+}
+
 export const resume = {
     about: {
-        summary: "Bachelor's student in Computing Science at Radboud University, Developer of the published iOS app 'Einstein's Riddle'.",
+        summary: "Thomas Goossen: A bachelor's student in Computing Science at Radboud University, developer of the published iOS app 'Einstein's Riddle'. Enthusiastic about tech-related topics such as embedded systems and game technologies. Enjoys all things aviation.",
     },
 
     contact: {
         name: 'Thomas Goossen',
         email: 'thomasgoossen@zeelandnet.nl',
-        phone: '+00 000 0000',
-        location: 'Axel, Netherlands',
+        location: 'The Netherlands',
         web: 'website / github / linkedin'
     },
 
@@ -40,21 +46,21 @@ export const resume = {
             location: "Nijmegen"
         },
         {
-            institution: "Lodewijk College",
-            degree: "VWO Bilingual Education",
-            field: "NT (Natuur/techniek)",
-            startDate: new Date(2016, 8, 1),
-            endDate: new Date(2022, 6, 9),
-            location: "Terneuzen"
-        },
-        {
             institution: "Ritsumeikan University",
             degree: "Bachelor Exchange program",
             field: "Study in Kansai Program",
             startDate: new Date(2025, 8, 26),
-            endDate: new Date(2026, 1, 31),
+            endDate: new Date(2026, 0, 31),
             location: "OIC Campus, Osaka, Japan"
-        }
+        },
+        {
+            institution: "Lodewijk College",
+            degree: "VWO Bilingual Education",
+            field: "NT (Natuur/techniek)",
+            startDate: new Date(2016, 8, 1),
+            endDate: new Date(2022, 5, 9),
+            location: "Terneuzen"
+        },
     ] as EducationEntry[],
 
     languages: [
@@ -106,4 +112,25 @@ export const resume = {
             experience: 0.3
         }
     ] as ProgLangEntry[],
+
+    projects: [
+        {
+            name: "Einstein's Riddle",
+            description: "Mobile logic puzzle game, presenting the Einstein's Zebra Puzzle as a fun and engaging challenge.",
+            stack: "React Native using the Expo framework",
+            url: "https://apps.apple.com/us/app/einsteins-riddle-logic-puzzle/id6751275567"
+        },
+        {
+            name: "Portfolio website",
+            description: "A simple portfolio website, functioning as an online CV.",
+            stack: "Sveltekit with Tailwindcss",
+            url: "https://github.com/thomasgoossen04/portfolio"
+        },
+        {
+            name: "Gooselib",
+            description: "A full stack Steam-like application made for sharing folders from a self-hosted source.",
+            stack: "Java (Server, Client), Tauri + SvelteKit (Frontend)",
+            url: "https://github.com/thomasgoossen04/gooselib"
+        }
+    ] as ProjectEntry[]
 };

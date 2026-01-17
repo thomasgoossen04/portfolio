@@ -6,52 +6,38 @@
 	const sortedProgLangs = [...resume.prog_languages].sort((a, b) => b.experience - a.experience);
 </script>
 
-<div class="flex min-h-screen flex-col items-center justify-center p-10">
-	<!-- About Me -->
-	<div class="mt-4 mr-10 w-md">
+<!-- Two-column grid container -->
+<div class="grid min-h-screen grid-cols-1 gap-6 p-10 sm:grid-cols-2">
+	<!-- LEFT COLUMN -->
+	<div class="flex flex-col gap-6">
+		<!-- About Me (top-left) -->
 		<AsciiCard title="About me">
-			<TerminalReveal command="whoami">
+			<TerminalReveal index={0} command="whoami">
 				<p>{resume.about.summary}</p>
 			</TerminalReveal>
 		</AsciiCard>
-	</div>
 
-	<!-- Contact Info -->
-	<div class="mt-4 mr-10 w-md">
-		<AsciiCard title="Contact information">
-			<TerminalReveal command="cat contact.txt">
-				<p>
-					name: {resume.contact.name}<br />
-					email: {resume.contact.email}<br />
-					phone: {resume.contact.phone}<br />
-					location: {resume.contact.location}<br />
-					web: {resume.contact.web}<br />
-				</p>
-			</TerminalReveal>
-		</AsciiCard>
-	</div>
-
-	<!-- Education -->
-	<div class="mt-4 mr-10 w-md">
+		<!-- Education -->
 		<AsciiCard title="Education">
-			<TerminalReveal command="cat education.txt">
-				{#each resume.education as edu}
+			<TerminalReveal index={2} command="cat education.txt">
+				{#each resume.education as edu, i}
 					<p>
+						{#if i != 0}
+							<br />
+						{/if}
 						<b>{edu.institution}</b> - {edu.degree} ({edu.field})<br />
 						{edu.startDate.toLocaleDateString()} - {edu.endDate
 							? edu.endDate.toLocaleDateString()
 							: 'Present'}<br />
-						Location: {edu.location}<br /><br />
+						Location: {edu.location}<br />
 					</p>
 				{/each}
 			</TerminalReveal>
 		</AsciiCard>
-	</div>
 
-	<!-- Languages -->
-	<div class="mt-4 mr-10 w-md">
+		<!-- Languages -->
 		<AsciiCard title="Languages">
-			<TerminalReveal command="cat languages.txt">
+			<TerminalReveal index={3} command="cat languages.txt">
 				{#each resume.languages as lang}
 					<p>
 						{lang.name}: {lang.fluency}<br />
@@ -59,31 +45,59 @@
 				{/each}
 			</TerminalReveal>
 		</AsciiCard>
+
+		<!-- Contact Info -->
+		<AsciiCard title="Contact information">
+			<TerminalReveal index={4} command="cat contact.txt">
+				<p>
+					name: {resume.contact.name}<br />
+					email: {resume.contact.email}<br />
+					location: {resume.contact.location}<br />
+					web: {resume.contact.web}<br />
+				</p>
+			</TerminalReveal>
+		</AsciiCard>
 	</div>
 
-	<!-- Programming Languages / Skills -->
-	<div class="mt-6 flex flex-wrap justify-center">
-		<div class="mt-4 mr-10 w-md">
-			<AsciiCard title="Programming Skills">
-				<TerminalReveal command="cat skills.txt">
-					<div class="space-y-2">
-						{#each sortedProgLangs as prog}
-							<div>
-								<div class="mb-1 flex justify-between text-sm font-medium">
-									<span>{prog.name}</span>
-									<span>{(prog.experience * 100).toFixed(0)}%</span>
-								</div>
-								<div class="h-3 w-full rounded-full bg-gray-300">
-									<div
-										class="h-3 rounded-full bg-green-500"
-										style="width: {prog.experience * 100}%"
-									></div>
-								</div>
+	<!-- RIGHT COLUMN -->
+	<div class="flex flex-col gap-6">
+		<!-- Programming Skills (Responsive Terminal-style) -->
+		<AsciiCard title="Programming Skills">
+			<TerminalReveal index={1} command="cat skills.txt">
+				<div class="space-y-2 font-mono text-sm">
+					{#each sortedProgLangs as prog}
+						<div>
+							<div class="mb-1 flex justify-between">
+								<span>{prog.name}</span>
+								<span>{(prog.experience * 100).toFixed(0)}%</span>
 							</div>
-						{/each}
-					</div>
-				</TerminalReveal>
-			</AsciiCard>
-		</div>
+							<div class="sm relative h-4 w-full overflow-hidden bg-gray-900">
+								<div class="h-full bg-[#0C8054]" style="width: {prog.experience * 100}%"></div>
+								<!-- Optional: subtle stripes for terminal feel -->
+								<div
+									class="pointer-events-none absolute top-0 left-0 h-full w-full bg-gradient-to-r from-green-500/30 via-green-500/10 to-green-500/30 opacity-20"
+								></div>
+							</div>
+						</div>
+					{/each}
+				</div>
+			</TerminalReveal>
+		</AsciiCard>
+
+		<!-- Projects -->
+		<AsciiCard title="Projects">
+			<TerminalReveal index={5} command="cat projects.txt">
+				{#each resume.projects as proj, i}
+					<p>
+						{#if i != 0}
+							<br />
+						{/if}
+						<b>{proj.name}</b> - {proj.description}<br />
+						Tech stack: {proj.stack}<br />
+						<a href={proj.url} target="_blank">Project <u>link</u></a><br />
+					</p>
+				{/each}
+			</TerminalReveal>
+		</AsciiCard>
 	</div>
 </div>

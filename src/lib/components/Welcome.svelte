@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 
-	const text = 'Welcome! This website is currently WIP...';
+	const text = 'Welcome! Nice to meet you...';
 	let displayed = '';
 	let index = 0;
 	let done = false;

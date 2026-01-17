@@ -4,7 +4,7 @@
 
 <div class="ascii-card">
 	{#if title}
-		<div class="ascii-title">{title}</div>
+		<div class="ascii-title"><b>{title}</b></div>
 	{/if}
 
 	<div class="ascii-content">
@@ -51,7 +51,7 @@
 		left: 0.75rem;
 		padding: 0 0.5rem;
 		background: var(--color-surface-950);
-		font-size: 0.75rem;
+		font-size: 1rem;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
 	}

@@ -1,28 +1,40 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { revealIndex } from '$lib/stores/reveal';
+	import { get } from 'svelte/store';
 
 	export let command: string;
-	export let typingSpeed = 40; // ms per char
-	export let delayAfter = 150; // ms before reveal
+	export let index: number;
+	export let typingSpeed = 30;
+	export let delayAfter = 150;
 
 	let displayed = '';
 	let showContent = false;
 
+	const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 	onMount(async () => {
-		for (let i = 0; i < command.length; i++) {
-			displayed += command[i];
-			await new Promise((r) => setTimeout(r, typingSpeed));
+		// ⏳ Wait until it's this component's turn
+		while (get(revealIndex) !== index) {
+			await sleep(50);
 		}
 
-		await new Promise((r) => setTimeout(r, delayAfter));
+		// ⌨️ Type command
+		for (let i = 0; i < command.length; i++) {
+			displayed += command[i];
+			await sleep(typingSpeed);
+		}
+
+		await sleep(delayAfter);
 		showContent = true;
+
+		// ➡️ Allow next reveal
+		revealIndex.update((n) => n + 1);
 	});
 </script>
 
 <div class="terminal-reveal">
-	<p class="mb-4">
-		> {displayed}
-	</p>
+	<p class="mb-4">&gt; {displayed}</p>
 
 	{#if showContent}
 		<div class="content">

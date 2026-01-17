@@ -1,2 +1,2 @@
 # Welcome
-Welcome to the portfolio website repository of Thomas Goossen, this website is currently under construction so check back later!
+Welcome to the source code of the portfolio website repository of Thomas Goossen, written using SvelteKit and tailwindcss
