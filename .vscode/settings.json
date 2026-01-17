@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "markdown-pdf.convertOnSave": false
+}
