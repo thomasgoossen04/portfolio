@@ -3,7 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 
-	const text = 'Welcome! Nice to meet you...';
+	const text = 'Welcome! Initializing portfolio...';
 	let displayed = '';
 	let index = 0;
 	let done = false;
@@ -34,7 +34,7 @@
 <section class="welcome">
 	<div class="terminal-line">
 		<span>{displayed}</span>
-		<span class="cursor">█</span>
+		<span class="cursor" class:done>█</span>
 	</div>
 
 	{#if done}
@@ -49,18 +49,27 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		align-items: center;
 		background: var(--color-surface-950);
 		color: var(--color-surface-50);
+		padding: 1.5rem;
 	}
 
 	.terminal-line {
-		font-size: 1.2rem;
-		white-space: pre;
+		font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+		line-height: 1.5;
+		white-space: pre-wrap;
+		text-align: center;
 	}
 
 	.cursor {
 		margin-left: 2px;
 		animation: blink 1s steps(1) infinite;
+	}
+
+	.cursor.done {
+		opacity: 0;
+		animation: none;
 	}
 
 	@keyframes blink {

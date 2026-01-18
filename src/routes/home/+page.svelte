@@ -1,5 +1,6 @@
 <script lang="ts">
 	import AsciiCard from '$lib/components/AsciiCard.svelte';
+	import EducationTimeline from '$lib/components/EducationTimeline.svelte';
 	import TerminalReveal from '$lib/components/TerminalReveal.svelte';
 	import { resume } from '$lib/data/resume';
 
@@ -20,18 +21,7 @@
 		<!-- Education -->
 		<AsciiCard title="Education">
 			<TerminalReveal index={2} command="cat education.txt">
-				{#each resume.education as edu, i}
-					<p>
-						{#if i != 0}
-							<br />
-						{/if}
-						<b>{edu.institution}</b> - {edu.degree} ({edu.field})<br />
-						{edu.startDate.toLocaleDateString()} - {edu.endDate
-							? edu.endDate.toLocaleDateString()
-							: 'Present'}<br />
-						Location: {edu.location}<br />
-					</p>
-				{/each}
+				<EducationTimeline education={resume.education} />
 			</TerminalReveal>
 		</AsciiCard>
 
@@ -53,7 +43,16 @@
 					name: {resume.contact.name}<br />
 					email: {resume.contact.email}<br />
 					location: {resume.contact.location}<br />
-					web: {resume.contact.web}<br />
+					web: {#each resume.contact.web as web_elem, i}
+						<a href={web_elem.url}>
+							{#if i != 0}
+								&nbsp;//
+							{/if}
+							<u>
+								{web_elem.name}
+							</u>
+						</a>
+					{/each}<br />
 				</p>
 			</TerminalReveal>
 		</AsciiCard>
@@ -72,7 +71,7 @@
 								<span>{(prog.experience * 100).toFixed(0)}%</span>
 							</div>
 							<div class="sm relative h-4 w-full overflow-hidden bg-gray-900">
-								<div class="h-full bg-[#0C8054]" style="width: {prog.experience * 100}%"></div>
+								<div class="h-full bg-green-500" style="width: {prog.experience * 100}%"></div>
 								<!-- Optional: subtle stripes for terminal feel -->
 								<div
 									class="pointer-events-none absolute top-0 left-0 h-full w-full bg-gradient-to-r from-green-500/30 via-green-500/10 to-green-500/30 opacity-20"

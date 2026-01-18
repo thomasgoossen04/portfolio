@@ -33,7 +33,16 @@ export const resume = {
         name: 'Thomas Goossen',
         email: 'thomasgoossen@zeelandnet.nl',
         location: 'The Netherlands',
-        web: 'website / github / linkedin'
+        web: [
+            {
+                name: "Github",
+                url: "https://github.com/thomasgoossen04"
+            },
+            {
+                name: "Linkedin",
+                url: "www.linkedin.com/in/thomas-goossen"
+            }
+        ]
     },
 
     education: [
