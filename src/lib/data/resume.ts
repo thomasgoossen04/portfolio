@@ -40,7 +40,7 @@ export const resume = {
             },
             {
                 name: "Linkedin",
-                url: "www.linkedin.com/in/thomas-goossen"
+                url: "https://www.linkedin.com/in/thomas-goossen"
             }
         ]
     },
